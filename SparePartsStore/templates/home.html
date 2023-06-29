@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom styles for blue accents */
+        .accent-blue {
+            color: #007bff;
+        }
+
+        .bg-accent-blue {
+            background-color: #007bff;
+        }
+
+        .border-accent-blue {
+            border-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-md navbar-dark bg-accent-blue">
+    <a class="navbar-brand accent-blue" href="#">SpareBikePartsStore</a>
+    <!-- Add additional navigation links here -->
+    <a href="cart"><i class="fa fa-shopping-cart" aria-hidden="true" style="font-size: 20px; color: white;margin-right: 20px;"></i></a>
+</nav>
+
+<!-- Hero Section -->
+<header class="jumbotron jumbotron-fluid bg-accent-blue text-white">
+    <div class="container">
+        <h1>Welcome to Spare Bike Parts Store</h1>
+        <p>Discover amazing products at great prices.</p>
+        <!-- Add call-to-action buttons or search bar here -->
+    </div>
+</header>
+
+<!-- Product Categories Section -->
+<section class="container">
+
+    <h2 class="accent-blue">Explore Our Categories</h2>
+    <br>
+
+    <h1>Categories</h1>
+
+    <div class="karticki" style="display: flex;justify-content: space-between;">
+
+        {% for category in categories %}
+        <a href="{% url 'category_page' category.id %}">
+            <div style="background: #007bff;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    color: white;
+    font-weight: bolder;">{{ category.name }}
+            </div>
+            {% endfor %}
+    </div>
+
+</section>
+<br>
+<br>
+<br>
+
+
+<!-- Footer -->
+<footer class="container-fluid bg-accent-blue text-white">
+    <div class="container">
+        <p>&copy; 2023 SpareBikePartsStore. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

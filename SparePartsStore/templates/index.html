@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Custom styles for blue accents */
+    .accent-blue {
+      color: #007bff;
+    }
+    .bg-accent-blue {
+      background-color: #007bff;
+    }
+    .index-button {
+      margin-top: 50vh;
+      transform: translateY(-50%);
+    }
+    .welcome-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+
+{% load static %}
+<div class="container-fluid" style="background-image: url('../static/indexphoto.jpg'); height:60rem">
+
+
+
+  <!-- Welcome Text -->
+
+    <div class="welcome-text">
+    <h1 class="accent-blue">Welcome to Spare Bicycle Parts Store</h1>
+    <p>Discover amazing products at great prices.</p>
+  </div>
+
+  <!-- Central Button -->
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="text-center">
+    <a class="btn btn-primary btn-lg index-button" href="/home" role="button">Enter Store</a>
+  </div>
+
+
+</div>
+  <!-- Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

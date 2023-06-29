@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom styles for blue accents */
+        .accent-blue {
+            color: #007bff;
+        }
+
+        .bg-accent-blue {
+            background-color: #007bff;
+        }
+
+        .border-accent-blue {
+            border-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-md navbar-dark bg-accent-blue">
+    <a class="navbar-brand accent-blue" href="/home">SpareBikePartsStore</a>
+    <!-- Add additional navigation links here -->
+    <a href="cart"><i class="fa fa-shopping-cart" aria-hidden="true"
+                      style="font-size: 20px; color: white;margin-right: 20px;"></i></a>
+</nav>
+
+<!-- Hero Section -->
+<header class="jumbotron jumbotron-fluid bg-accent-blue text-white">
+    <div class="container">
+        <h1>Cart</h1>
+
+        <!-- Add call-to-action buttons or search bar here -->
+    </div>
+</header>
+
+
+<div class="container text-center">
+    <div class="row">
+        <div class="col">
+            Image
+        </div>
+        <div class="col">
+            Name
+        </div>
+        <div class="col">
+            Price
+        </div>
+        <div class="col">
+            Action
+        </div>
+    </div>
+    <hr>
+    {% for product_id, item in cart.items %}
+    <div class="row">
+        <div class="col">
+            <img src="{{ item.photo }}" alt="Product Image" width="100">
+        </div>
+        <div class="col">
+            {{ item.name }}
+        </div>
+        <div class="col">
+            {{ item.price }} &euro;
+        </div>
+        <div class="col">
+            <a href="{% url 'remove_from_cart' product_id %}">Remove</a>
+        </div>
+    </div>
+    <hr>
+    {% endfor %}
+</div>
+
+
+
+
+<hr>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-left">Payment</h2>
+            <hr>
+            <form action="/cart/success">
+                <div class="form-group">
+                    <label for="name">Name on Card</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="bank">Card Number</label>
+                    <input type="text" class="form-control" id="bank" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="billingaddress">Billing Address</label>
+                    <input type="text" class="form-control" id="billingaddress" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="cvc">CVC</label>
+                        <input type="text" class="form-control" id="cvc" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="expiration">Expiration</label>
+                        <input type="text" class="form-control" id="expiration" placeholder="MM" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="year">Year</label>
+                        <input type="text" class="form-control" id="year" placeholder="YYYY" required>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary btn-block">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<footer class="container-fluid bg-accent-blue text-white">
+    <div class="container">
+        <p>&copy; 2023 SpareBikePartsStore. All rights reserved.</p>
+    </div>
+</footer>
+
+
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!--<script>-->
+<!--    // Calculate and display the total amount-->
+<!--    window.addEventListener('DOMContentLoaded', () => {-->
+<!--        const prices = document.querySelectorAll('.col:nth-child(3)');-->
+<!--        let totalAmount = 0;-->
+
+<!--        prices.forEach((price) => {-->
+<!--            const priceValue = parseFloat(price.textContent.replace(' €', ''));-->
+<!--            totalAmount += priceValue;-->
+<!--        });-->
+
+<!--        document.getElementById('totalAmount').textContent = totalAmount.toFixed(2) + ' €';-->
+<!--    });-->
+<!--</script>-->
+</body>
+</html>
